@@ -11,21 +11,21 @@ const questions = [
     },
 
     {
-        name: "text color",
+        name: "text_color",
         type: "input",
         message: "Insert a color for text",
     },
 
     {
-        name: "Table_of_Contents",
+        name: "font_size",
         type: "input",
-        message: "List the table of contents for this project",
+        message: "Choose a font size",
     },
 
     {
-        name: "installation",
+        name: "background_color",
         type: "input",
-        message: "How do I install and use this project?",
+        message: "Choose a background color.",
     },
 
     {
@@ -39,9 +39,9 @@ const questions = [
         type: "list",
         message: "Choose a shape for your logo",
         choices: [
-            "Apache License 2.0",
-            "GNU General Public License v3.0",
-            "MIT License",
+            "Circle",
+            "Square",
+            "Triangle",
         ]
     },
 
