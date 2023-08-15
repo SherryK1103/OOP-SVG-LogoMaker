@@ -35,9 +35,9 @@ const questions = [
     },
 
     {
-        name: "license",
+        name: "shapes",
         type: "list",
-        message: "Choose a license for your project:",
+        message: "Choose a shape for your logo",
         choices: [
             "Apache License 2.0",
             "GNU General Public License v3.0",
