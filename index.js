@@ -17,24 +17,6 @@ const questions = [
     },
 
     {
-        name: "font_size",
-        type: "input",
-        message: "Choose a font size",
-    },
-
-    {
-        name: "background_color",
-        type: "input",
-        message: "Choose a background color.",
-    },
-
-    {
-        name: "usage",
-        type: "input",
-        message: "Copy and paste the screenshot file path here",
-    },
-
-    {
         name: "shapes",
         type: "list",
         message: "Choose a shape for your logo",
@@ -46,14 +28,9 @@ const questions = [
     },
 
     {
-        name: "contributing",
+        name: "shapes_color",
         type: "input",
-        message: "How can others contribute to this project?",
-    },
-    {
-        name: "tests",
-        type: "input",
-        message: "What command should be run to run a test?",
+        message: "Enter a sahpe color",
     },
 ];
 
