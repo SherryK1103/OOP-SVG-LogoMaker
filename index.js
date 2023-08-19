@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const { Circle, Triangle, Square } = require('./shapes');
 
 // TODO: Create an array of questions for user input
 const questions = [ 
@@ -34,31 +35,36 @@ const questions = [
     },
 ];
 
-function generateSVG(answers) {
+function generateSVG(answers, shape) {
     let svg = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">`;
 
-      // Handle the chosen shape
-  if (answers.shapes === 'Circle') {
-    svg += `<circle cx="150" cy="100" r="80" fill="${answers.shapes_color}" />`;
-  } else if (answers.shapes === 'Square') {
-    svg += `<rect x="50" y="50" width="200" height="200" fill="${answers.shapes_color}" />`;
-  } else if (answers.shapes === 'Triangle') {
-    svg += `<path d="M150 20 L250 180 L50 180 Z" fill="${answers.shapes_color}" />`;
-  }
+    // Use the shape's render method to add its specific SVG markup
+    svg += shape.render();
 
-  // Add the text
-  svg += `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${answers.text_color}">${answers.text}</text>`;
+    // Add the common text
+    svg += `<text x="150" y="125" font-size="60" text-anchor="middle" fill="${answers.text_color}">${answers.text}</text>`;
 
-  svg += `</svg>`;
-  return svg;
+    svg += `</svg>`;
+    return svg;
 }
-
 
 async function generateLogo () {
     const answers = await inquirer.prompt(questions);
     console.log(answers);
 
-    const svg = generateSVG(answers);
+    let shape;
+
+    if (answers.shapes === 'Circle') {
+        shape = new Circle();
+    } else if (answers.shapes === 'Square') {
+        shape = new Square();
+    } else if (answers.shapes === 'Triangle') {
+        shape = new Triangle();
+    }
+
+    shape.setColor(answers.shapes_color);
+
+    const svg = generateSVG(answers) + shape.render();
 
     // Write the SVG string to a file named 'logo.svg'
     fs.writeFile('logo.svg', svg, (err) => {
