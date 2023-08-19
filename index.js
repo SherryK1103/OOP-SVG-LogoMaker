@@ -64,7 +64,7 @@ async function generateLogo () {
 
     shape.setColor(answers.shapes_color);
 
-    const svg = generateSVG(answers) + shape.render();
+    const svg = generateSVG(answers, shape) + shape.render();
 
     // Write the SVG string to a file named 'logo.svg'
     fs.writeFile('logo.svg', svg, (err) => {
