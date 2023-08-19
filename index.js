@@ -29,7 +29,7 @@ const questions = [
     {
         name: "shapes_color",
         type: "input",
-        message: "Enter a sahpe color",
+        message: "Enter a shape color",
     },
 ];
 
