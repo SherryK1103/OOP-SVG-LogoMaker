@@ -12,7 +12,7 @@ Git clone <paste SSH key>
 ## Usage
 
 GitHub Repo: https://github.com/SherryK1103/OOP-SVG-LogoMaker
-Screencastify recording
+Screencastify recording: https://drive.google.com/file/d/1yEM1ZRp1Brvg2EstmNxayRITPto98t0u/view 
 
 ## Process Steps
 
