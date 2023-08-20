@@ -48,18 +48,26 @@ function generateSVG(answers, shape) {
     return svg;
 }
 
-async function generateLogo () {
+
+async function generateLogo() {
     const answers = await inquirer.prompt(questions);
     console.log(answers);
 
     let shape;
 
-    if (answers.shapes === 'Circle') {
-        shape = new Circle();
-    } else if (answers.shapes === 'Square') {
-        shape = new Square();
-    } else if (answers.shapes === 'Triangle') {
-        shape = new Triangle();
+    switch (answers.shapes) {
+        case 'Circle':
+            shape = new Circle();
+            break;
+        case 'Square':
+            shape = new Square();
+            break;
+        case 'Triangle':
+            shape = new Triangle();
+            break;
+        default:
+            console.error('Invalid shape selection');
+            return; // Exit the function or handle the error appropriately
     }
 
     shape.setColor(answers.shapes_color);
